@@ -93,8 +93,9 @@
   function renderHeader() {
     const el = document.getElementById("site-header");
     if (!el) return;
+    el.classList.toggle("is-home-header", currentPage === "index.html");
     el.innerHTML = `
-      <div class="navbar" id="navbar">
+      <div class="navbar ${currentPage === "index.html" ? "navbar--over-hero" : ""}" id="navbar">
         <div class="container navbar-inner">
           <a href="index.html" class="brand" aria-label="${SITE.lawyerName} — Home">
             <span class="brand-name"><span>${SITE.lawyerName}</span></span>
@@ -122,17 +123,19 @@
   function renderFooter() {
     const el = document.getElementById("site-footer");
     if (!el) return;
-    const year = new Date().getFullYear();
+    const socialLinks = [
+      [SITE.linkedin, "LinkedIn", icon.linkedin],
+      [SITE.instagram, "Instagram", icon.instagram],
+      [SITE.facebook, "Facebook", icon.facebook],
+    ].filter(([href]) => href && href !== "#").map(([href, label, graphic]) =>
+      `<a href="${href}" aria-label="${label} profile">${graphic}</a>`
+    ).join("");
     el.innerHTML = `
       <div class="container footer-top">
         <div class="footer-brand">
           <span class="brand-name">${SITE.lawyerName}</span>
-          <p>${SITE.tagline}. Providing strategic, ethical and client-focused legal representation.</p>
-          <div class="social-row">
-            <a href="${SITE.linkedin}" aria-label="LinkedIn profile">${icon.linkedin}</a>
-            <a href="${SITE.instagram}" aria-label="Instagram profile">${icon.instagram}</a>
-            <a href="${SITE.facebook}" aria-label="Facebook page">${icon.facebook}</a>
-          </div>
+          <p>${SITE.tagline}. Thoughtful consultation focused on clarity, preparation, and client needs.</p>
+          ${socialLinks ? `<div class="social-row">${socialLinks}</div>` : ""}
         </div>
         <div class="footer-col">
           <h4>Quick Links</h4>
@@ -158,15 +161,8 @@
           </ul>
         </div>
       </div>
-      <div class="disclaimer-strip container">
-        Information on this website is for general informational purposes only and does not constitute legal advice. Viewing this website or contacting the lawyer does not create an advocate-client relationship. For advice on a specific matter, please consult a qualified legal professional.
-      </div>
       <div class="container footer-bottom">
         <span>&copy; 2026 ${SITE.lawyerName}. All Rights Reserved.</span>
-        <div class="legal-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Legal Disclaimer</a>
-        </div>
       </div>
     `;
   }
@@ -201,7 +197,17 @@
       accordion.addEventListener("click", () => {
         const expanded = accordion.getAttribute("aria-expanded") === "true";
         accordion.setAttribute("aria-expanded", String(!expanded));
-        subnav.hidden = expanded;
+        if (expanded) {
+          subnav.classList.remove("is-expanded");
+          const hideSubnav = () => {
+            if (accordion.getAttribute("aria-expanded") === "false") subnav.hidden = true;
+          };
+          subnav.addEventListener("transitionend", hideSubnav, { once: true });
+          window.setTimeout(hideSubnav, 320);
+        } else {
+          subnav.hidden = false;
+          window.requestAnimationFrame(() => subnav.classList.add("is-expanded"));
+        }
       });
     }
     window.addEventListener("keydown", (e) => {
