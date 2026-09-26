@@ -146,6 +146,7 @@
             <span class="tag tag-status">${c.status}</span>
           </div>
           <h3>${c.title}</h3>
+          <p class="case-year">${c.year} · ${c.type}</p>
           <p>${c.summary}</p>
           <a class="card-link" href="case-details.html?id=${c.id}">View Case
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>

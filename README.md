@@ -10,7 +10,7 @@ A complete, production-quality, multi-page portfolio website for a lawyer/advoca
 lawyer-portfolio/
 │
 ├── index.html              Home page
-├── about.html               About page (education, experience, bar membership)
+├── about.html               About page and editable professional details
 ├── practice-areas.html      Full practice-area listing
 ├── cases.html                Case/legal-experience listing with category filters
 ├── case-details.html         Dynamic case detail page (reads ?id= from URL)
@@ -41,10 +41,7 @@ lawyer-portfolio/
 └── README.md
 ```
 
-All placeholder images are lightweight, locally-hosted SVGs (navy/gold themed) so the
-site works immediately with **zero external image dependencies**. Replace any file in
-`assets/images/` with a real photo of the same name to update the site — every `<img>`
-tag already has descriptive `alt` text and `loading="lazy"` (except the hero image).
+Placeholder images are locally hosted SVGs. Replace the profile illustrations with Khushi's approved professional photo before publishing. Case examples are fictional demo content and must not be presented as real.
 
 ---
 
@@ -52,7 +49,7 @@ tag already has descriptive `alt` text and `loading="lazy"` (except the hero ima
 
 - **Site-wide details** (name, phone, email, address, office hours, social links):
   edit the `SITE` object at the top of `js/main.js`. This single object powers the
-  navbar brand name, the footer, and the contact page's default labels.
+  navbar brand, footer, and contact page details. Replace bracketed contact values with verified information before publishing.
 - **Case studies**: edit the `CASE_DATA` array in `js/cases.js`. Each object becomes
   both a card on `cases.html` and the full page on `case-details.html?id=<id>`.
   All case content shipped with this project is **fictional/demo data** — replace it

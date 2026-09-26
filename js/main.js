@@ -112,8 +112,8 @@
         <div class="footer-col">
           <h4>Contact</h4>
           <ul>
-            <li><a href="tel:${SITE.phone.replace(/\s+/g, "")}">${SITE.phone}</a></li>
-            <li><a href="mailto:${SITE.email}">${SITE.email}</a></li>
+            <li>${SITE.phone}</li>
+            <li>${SITE.email}</li>
             <li>${SITE.address}</li>
           </ul>
         </div>
@@ -169,6 +169,19 @@
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
+  }
+
+  function initContactDetails() {
+    const fields = {
+      contactAddress: SITE.address,
+      contactPhone: SITE.phone,
+      contactEmail: SITE.email,
+      contactHours: SITE.hours,
+    };
+    Object.entries(fields).forEach(([id, value]) => {
+      const element = document.getElementById(id);
+      if (element) element.textContent = value;
+    });
   }
 
   /* ---------- SCROLL REVEAL ---------- */
@@ -238,6 +251,7 @@
   document.addEventListener("DOMContentLoaded", () => {
     renderHeader();
     renderFooter();
+    initContactDetails();
     initMobileMenu();
     initScrollShadow();
     initReveal();
