@@ -1,6 +1,6 @@
 # Khushi Khabiya — Lawyer / Advocate Portfolio Website
 
-A complete, production-quality, multi-page portfolio website for a lawyer/advocate, built with **only HTML5, CSS3 and vanilla JavaScript** — no frameworks, no build step.
+A multi-page portfolio website for Khushi Khabiya, Advocate & Legal Consultant, built with HTML5, CSS3 and vanilla JavaScript.
 
 ---
 
@@ -54,7 +54,7 @@ Placeholder images are locally hosted SVGs. Replace the profile illustrations wi
   both a card on `cases.html` and the full page on `case-details.html?id=<id>`.
   All case content shipped with this project is **fictional/demo data** — replace it
   with real (non-confidential) summaries before publishing.
-- **Practice areas / services / timeline / education**: edit the relevant HTML blocks
+- **Practice areas / services / professional profile**: edit the relevant HTML blocks
   directly in `practice-areas.html`, `services.html`, and `about.html`.
 
 ---
