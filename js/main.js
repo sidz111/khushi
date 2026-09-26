@@ -16,7 +16,7 @@
     phone: "[Add phone number]",
     email: "[Add email address]",
     address: "[Add office location]",
-    hours: "Mon – Sat · 10:00 AM – 7:00 PM",
+    hours: "[Add office hours]",
     linkedin: "#",
     instagram: "#",
     facebook: "#",
@@ -43,11 +43,51 @@
   };
 
   /* ---------- NAVBAR TEMPLATE ---------- */
-  function navLinksHTML(container) {
-    return NAV_ITEMS.map(
-      (item) =>
-        `<a href="${item.href}" class="${item.href === currentPage ? "active" : ""}">${item.label}</a>`
-    ).join("");
+  const PRACTICE_LINKS = [
+    ["Criminal Law", "Criminal defense and legal guidance"],
+    ["Civil Law", "Civil disputes and representation"],
+    ["Family Law", "Guidance for family matters"],
+    ["Property Law", "Property and documentation matters"],
+    ["Corporate Law", "Business and commercial matters"],
+    ["Consumer Law", "Consumer rights and complaints"],
+    ["Cyber Law", "Digital and cyber related concerns"],
+    ["Contract Law", "Contract review and drafting"],
+  ];
+
+  function practiceLinksHTML() {
+    return PRACTICE_LINKS.map(([title, description]) => `
+      <a class="practice-dropdown-link" href="practice-areas.html" role="menuitem">
+        <span class="dropdown-icon" aria-hidden="true">${icon.scale}</span>
+        <span><strong>${title}</strong><small>${description}</small></span>
+        <span class="dropdown-arrow" aria-hidden="true">&rarr;</span>
+      </a>`).join("");
+  }
+
+  function navLinksHTML(mobile = false) {
+    return NAV_ITEMS.map((item) => {
+      const active = item.href === currentPage ? "active" : "";
+      const current = active ? ' aria-current="page"' : "";
+      if (item.label !== "Practice Areas") {
+        return `<a href="${item.href}" class="${active}"${current}>${item.label}</a>`;
+      }
+      if (mobile) {
+        return `<div class="mobile-nav-group">
+          <button class="mobile-nav-accordion" type="button" aria-expanded="false" aria-controls="mobilePracticeMenu">Practice Areas <span aria-hidden="true">&#9662;</span></button>
+          <div class="mobile-subnav" id="mobilePracticeMenu" hidden>
+            <a href="practice-areas.html" class="mobile-subnav-all">View all practice areas</a>
+            ${PRACTICE_LINKS.map(([title]) => `<a href="practice-areas.html">${title}</a>`).join("")}
+          </div>
+        </div>`;
+      }
+      return `<div class="nav-dropdown">
+        <a href="${item.href}" class="nav-dropdown-link ${active}"${current}>${item.label}</a>
+        <button class="dropdown-toggle" type="button" aria-label="Open practice areas menu" aria-expanded="false" aria-controls="desktopPracticeMenu"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m3 6 5 5 5-5"/></svg></button>
+        <div class="practice-dropdown" id="desktopPracticeMenu" role="menu">
+          <div class="dropdown-heading"><span>Explore Practice Areas</span><a href="practice-areas.html">View all <span aria-hidden="true">&rarr;</span></a></div>
+          <div class="dropdown-grid">${practiceLinksHTML()}</div>
+        </div>
+      </div>`;
+    }).join("");
   }
 
   function renderHeader() {
@@ -58,7 +98,7 @@
         <div class="container navbar-inner">
           <a href="index.html" class="brand" aria-label="${SITE.lawyerName} — Home">
             <span class="brand-name"><span>${SITE.lawyerName}</span></span>
-            <span class="brand-sub">Advocate</span>
+            <span class="brand-sub">${SITE.tagline}</span>
           </a>
           <nav class="nav-links" aria-label="Primary">${navLinksHTML()}</nav>
           <div class="nav-actions">
@@ -71,7 +111,7 @@
       </div>
       <div class="mobile-nav" id="mobileNav">
         <div class="mobile-nav-inner">
-          ${navLinksHTML()}
+          ${navLinksHTML(true)}
           <a href="contact.html" class="btn btn-primary">Book Consultation</a>
         </div>
       </div>
@@ -155,8 +195,40 @@
       toggle.classList.contains("is-open") ? closeMenu() : openMenu();
     });
     menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeMenu));
+    const accordion = menu.querySelector(".mobile-nav-accordion");
+    const subnav = document.getElementById("mobilePracticeMenu");
+    if (accordion && subnav) {
+      accordion.addEventListener("click", () => {
+        const expanded = accordion.getAttribute("aria-expanded") === "true";
+        accordion.setAttribute("aria-expanded", String(!expanded));
+        subnav.hidden = expanded;
+      });
+    }
     window.addEventListener("keydown", (e) => {
       if (e.key === "Escape") closeMenu();
+    });
+  }
+
+  function initPracticeDropdown() {
+    const dropdown = document.querySelector(".nav-dropdown");
+    const toggle = dropdown && dropdown.querySelector(".dropdown-toggle");
+    if (!dropdown || !toggle) return;
+    const close = () => {
+      dropdown.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+    };
+    toggle.addEventListener("click", () => {
+      const open = dropdown.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", String(open));
+    });
+    document.addEventListener("click", (event) => {
+      if (!dropdown.contains(event.target)) close();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        close();
+        toggle.focus();
+      }
     });
   }
 
@@ -253,6 +325,7 @@
     renderFooter();
     initContactDetails();
     initMobileMenu();
+    initPracticeDropdown();
     initScrollShadow();
     initReveal();
     initCounters();

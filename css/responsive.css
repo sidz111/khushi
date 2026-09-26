@@ -76,3 +76,15 @@
 
 /* Prevent any horizontal scroll globally */
 html, body{ max-width: 100%; overflow-x: hidden; }
+
+/* Tablet keeps the home hero balanced in two columns; mobile leads with copy. */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero-inner { grid-template-columns: 1fr .85fr; gap: 34px; padding-top: 72px; }
+  .hero-copy, .hero-visual { order: 0; }
+  .hero-visual { max-width: none; margin: 0; }
+}
+@media (max-width: 768px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-copy { order: 0; }
+  .hero-visual { order: 1; }
+}
