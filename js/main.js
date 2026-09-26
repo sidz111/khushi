@@ -11,11 +11,11 @@
 
   /* ---------- EDIT THESE VALUES TO CUSTOMISE THE SITE ---------- */
   const SITE = {
-    lawyerName: "Meera Kulkarni",
+    lawyerName: "Khushi Khabiya",
     tagline: "Advocate & Legal Consultant",
-    phone: "+91 98765 43210",
-    email: "contact@advmeerakulkarni.com",
-    address: "402, Skyline Chambers, FC Road, Pune, Maharashtra 411004",
+    phone: "[Add phone number]",
+    email: "[Add email address]",
+    address: "[Add office location]",
     hours: "Mon – Sat · 10:00 AM – 7:00 PM",
     linkedin: "#",
     instagram: "#",
@@ -57,8 +57,8 @@
       <div class="navbar" id="navbar">
         <div class="container navbar-inner">
           <a href="index.html" class="brand" aria-label="${SITE.lawyerName} — Home">
-            <span class="brand-name">ADV. <span>${SITE.lawyerName.split(" ")[0].toUpperCase()}</span> ${SITE.lawyerName.split(" ").slice(1).join(" ").toUpperCase()}</span>
-            <span class="brand-sub">${SITE.tagline}</span>
+            <span class="brand-name"><span>${SITE.lawyerName}</span></span>
+            <span class="brand-sub">Advocate</span>
           </a>
           <nav class="nav-links" aria-label="Primary">${navLinksHTML()}</nav>
           <div class="nav-actions">
@@ -86,7 +86,7 @@
     el.innerHTML = `
       <div class="container footer-top">
         <div class="footer-brand">
-          <span class="brand-name">ADV. ${SITE.lawyerName.toUpperCase()}</span>
+          <span class="brand-name">${SITE.lawyerName}</span>
           <p>${SITE.tagline}. Providing strategic, ethical and client-focused legal representation.</p>
           <div class="social-row">
             <a href="${SITE.linkedin}" aria-label="LinkedIn profile">${icon.linkedin}</a>
@@ -122,7 +122,7 @@
         Information on this website is for general informational purposes only and does not constitute legal advice. Viewing this website or contacting the lawyer does not create an advocate-client relationship. For advice on a specific matter, please consult a qualified legal professional.
       </div>
       <div class="container footer-bottom">
-        <span>&copy; ${year} Adv. ${SITE.lawyerName}. All Rights Reserved.</span>
+        <span>&copy; 2026 ${SITE.lawyerName}. All Rights Reserved.</span>
         <div class="legal-links">
           <a href="#">Privacy Policy</a>
           <a href="#">Legal Disclaimer</a>

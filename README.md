@@ -1,4 +1,4 @@
-# Adv. Meera Kulkarni — Lawyer / Advocate Portfolio Website
+# Khushi Khabiya — Lawyer / Advocate Portfolio Website
 
 A complete, production-quality, multi-page portfolio website for a lawyer/advocate, built with **only HTML5, CSS3 and vanilla JavaScript** — no frameworks, no build step.
 

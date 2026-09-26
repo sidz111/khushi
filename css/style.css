@@ -519,3 +519,21 @@ p{ margin: 0 0 16px; color: var(--text-soft); max-width: 62ch; }
 .mt-0{ margin-top:0; }
 .text-center{ text-align:center; }
 .mx-auto{ margin-left:auto; margin-right:auto; }
+
+/* Khushi Khabiya portfolio refinements */
+:root{--navy:#101828;--navy-deep:#0b1220;--royal:#1d3557;--gold:#c9a227;--cream:#f8f9fb;--text:#1d2939;--text-soft:#667085;--border:rgba(16,24,40,.10);--shadow:0 24px 60px rgba(16,24,40,.10);--shadow-sm:0 8px 24px rgba(16,24,40,.07);--container:1200px;--radius:18px}
+body{background:#fff} .navbar{background:rgba(255,255,255,.94);backdrop-filter:blur(16px)}
+.brand-name{font-size:1.3rem;letter-spacing:-.025em}.brand-name span{color:var(--navy)}.brand-sub{letter-spacing:.12em;text-transform:uppercase;font-size:.65rem}
+.hero{background:radial-gradient(ellipse at 78% 30%,rgba(29,53,87,.68),transparent 42%),linear-gradient(125deg,#101828,#17263b 72%,#101828)}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.14;background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);background-size:56px 56px;mask-image:linear-gradient(90deg,transparent 12%,#000 100%)}
+.hero-inner{grid-template-columns:1.1fr .9fr;gap:72px;padding:100px 0 112px}.hero h1{font-size:clamp(3.3rem,6.4vw,5.5rem);letter-spacing:-.045em;margin-bottom:16px}.hero-subheading{font-family:var(--font-head);font-weight:500;color:#f4f6f9;font-size:clamp(1.35rem,2.4vw,2rem);max-width:24ch;line-height:1.35;margin-bottom:20px}.hero p.lead{font-size:1.05rem;max-width:49ch}.hero-frame{border-radius:28px;box-shadow:0 28px 70px rgba(0,0,0,.26)}.hero-frame img{aspect-ratio:4/4.6;object-fit:cover}.hero-card{left:-38px;bottom:-28px;max-width:calc(100% + 30px);border:1px solid rgba(16,24,40,.08);box-shadow:0 16px 50px rgba(0,0,0,.18)}.hero-badge{background:rgba(255,255,255,.04);letter-spacing:.13em}
+.btn{transition:transform .2s ease,box-shadow .2s ease,background .2s ease}.btn-primary{background:var(--gold);color:#101828}.btn-primary:hover{box-shadow:0 10px 24px rgba(201,162,39,.24)}.btn-navy{background:var(--navy)}
+.section--cream{background:#f8f9fb}.practice-card,.service-card,.edu-card{border-radius:18px;box-shadow:0 4px 18px rgba(16,24,40,.025)}.practice-card:hover,.service-card:hover{transform:translateY(-4px);box-shadow:0 18px 42px rgba(16,24,40,.09);border-color:rgba(201,162,39,.48)}
+.trust-strip{border-block:1px solid var(--border);background:#fff}.trust-strip-inner{min-height:82px;display:flex;align-items:center;justify-content:center;gap:clamp(20px,5vw,70px);color:var(--text-soft);font-size:.86rem;font-weight:600}.trust-strip-inner i{width:5px;height:5px;background:var(--gold);border-radius:50%}
+.footer-top{padding-top:72px}.footer-brand .brand-name{font-family:var(--font-head);font-size:1.45rem}.footer-bottom{padding-block:22px}.disclaimer-strip{font-size:.82rem}
+.profile-facts{align-items:stretch}.profile-facts .practice-card{height:100%}
+@media(max-width:1080px){.nav-links{gap:18px}.nav-links a{font-size:.87rem}.nav-cta{padding:11px 16px}}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr;gap:40px;padding:66px 0 86px}.hero-visual{order:0;max-width:520px;width:100%;margin:0 auto 14px}.hero-copy{order:1}.hero h1{font-size:clamp(3rem,10vw,5rem)}.hero-card{left:14px;bottom:-26px}.hero-deco{opacity:.25}}
+@media(max-width:768px){.trust-strip-inner{min-height:72px;flex-wrap:wrap;gap:10px 18px;font-size:.75rem}.hero-inner{padding:38px 0 70px}.hero-visual{margin-bottom:24px}.hero-card{left:10px;bottom:-18px;padding:14px 16px;min-width:0}.hero-card strong{font-size:1rem}.hero-card span{font-size:.75rem}.hero-frame img{aspect-ratio:1/1.03}.hero-copy{padding-top:12px}.profile-facts{grid-template-columns:1fr 1fr}.nav-links a:focus-visible,.mobile-nav a:focus-visible{outline-offset:4px}}
+@media(max-width:520px){.profile-facts{grid-template-columns:1fr}.trust-strip-inner{justify-content:center}.trust-strip-inner i{display:none}.hero h1{font-size:clamp(2.75rem,13vw,4rem)}.hero-subheading{font-size:1.35rem}.hero-card{width:calc(100% - 20px)}.section-head{margin-bottom:34px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.practice-card,.service-card,.btn{transition:none}}
