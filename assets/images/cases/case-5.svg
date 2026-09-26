@@ -1,0 +1,9 @@
+<svg viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Consumer case illustration">
+  <rect width="480" height="300" fill="#14213D"/>
+  <g opacity="0.15" stroke="#F7F5EF" stroke-width="1">
+    <line x1="0" y1="60" x2="480" y2="60"/>
+    <line x1="0" y1="240" x2="480" y2="240"/>
+  </g>
+  <circle cx="240" cy="150" r="60" fill="none" stroke="#C9A227" stroke-width="5"/>
+  <text x="240" y="158" text-anchor="middle" fill="#F7F5EF" font-family="Georgia, serif" font-size="22">Consumer</text>
+</svg>

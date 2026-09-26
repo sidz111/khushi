@@ -1,0 +1,11 @@
+<svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of a modern law office interior">
+  <rect width="900" height="600" fill="#F7F5EF"/>
+  <rect x="0" y="380" width="900" height="220" fill="#E9E4D6"/>
+  <rect x="80" y="120" width="300" height="260" fill="#14213D"/>
+  <rect x="110" y="150" width="240" height="16" fill="#C9A227"/>
+  <rect x="110" y="180" width="240" height="10" fill="#F7F5EF" opacity="0.5"/>
+  <rect x="110" y="200" width="240" height="10" fill="#F7F5EF" opacity="0.5"/>
+  <rect x="480" y="200" width="340" height="180" rx="8" fill="#1F4E79"/>
+  <rect x="500" y="220" width="140" height="140" rx="6" fill="#F7F5EF"/>
+  <circle cx="570" cy="290" r="34" fill="none" stroke="#C9A227" stroke-width="5"/>
+</svg>
